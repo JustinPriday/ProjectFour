@@ -12,6 +12,8 @@ import com.example.JokeSource;
 
 public class JokeActivity extends AppCompatActivity {
 
+    public static final String EXTRA_JOKE = "com.udacity.gradle.builditbigger.jokefactory.EXTRA_JOKE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
