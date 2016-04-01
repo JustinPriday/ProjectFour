@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">Build it Bigger</string>
+    <string name="app_name">Jokenator</string>
     <string name="instructions">Press the button for a delicious joke!</string>
     <string name="button_text">Tell Joke</string>
     <string name="action_settings">Settings</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="app_engine_api_url" translatable="false">https://udacity-project-4-1266.appspot.com/_ah/api/</string>
+
+    <string name="settings_menu_message">There aren\'t really any settings yet. We\'re working on some new
+        exciting settings so check back for more settings soon!!</string>
 </resources>

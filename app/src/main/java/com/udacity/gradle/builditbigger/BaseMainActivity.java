@@ -1,8 +1,8 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,14 +10,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-//import com.example.JokeSource;
 import com.justinpriday.codelab.jokefactory_views.JokeActivity;
 import com.udacity.gradle.builditbigger.Task.JokeAsyncTask;
 
 import java.io.IOException;
 
 
-public class MainActivity extends ActionBarActivity
+public abstract class BaseMainActivity extends AppCompatActivity
     implements JokeAsyncTask.Callback {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
@@ -48,30 +47,26 @@ public class MainActivity extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(BaseMainActivity.this, getString(R.string.settings_menu_message), Toast.LENGTH_LONG).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-//        JokeSource mJoker = new JokeSource();
-//        String mJoke = mJoker.getAJoke();
-//        Toast.makeText(this, mJoke, Toast.LENGTH_SHORT).show();
+    public void tellJoke(View view) {
+        loadAJoke();
+    }
 
-//        Intent intent = new Intent(this, JokeActivity.class);
-//        intent.putExtra(JokeActivity.EXTRA_JOKE, joke);
-//        startActivity(intent);
-
+    protected final void loadAJoke() {
         mProgressBar.setVisibility(View.VISIBLE);
         if (mJokeTask != null) {
             mJokeTask.cancel(true);
         }
 
-        mJokeTask = new JokeAsyncTask(this);
+        mJokeTask = new JokeAsyncTask(this, this, false);
         mJokeTask.execute();
     }
-
 
     @Override
     public void onJokeSuccess(String joke) {

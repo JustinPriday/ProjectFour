@@ -10,7 +10,17 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+    }
+
+    productFlavors {
+        pro {
+            applicationId "com.udacity.gradle.builditbigger.pro"
+            targetSdkVersion 23
+        }
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            targetSdkVersion 23
+        }
     }
 
     buildTypes {
@@ -23,9 +33,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // Added for AdMob
+
     compile project(':jokefactory-views')
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.google.android.gms:play-services:8.4.0'
     compile project(path: ':backend', configuration: 'android-endpoints')
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    // Added for AdMob
+    freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:design:23.2.1'
 }

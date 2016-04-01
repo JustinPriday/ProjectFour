@@ -1,0 +1,15 @@
+package com.udacity.gradle.builditbigger;
+
+import android.os.Bundle;
+
+public class MainActivity extends BaseMainActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+
+
+}
