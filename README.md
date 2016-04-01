@@ -1,3 +1,8 @@
+### Modified by Justin Priday to meet requirements for Udacity Android Nanodegree Project Four: Build It Bigger.
+Special thanks to onelinefun.com for the joke content.
+
+Original instructions from Udacity are as follows.
+
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
